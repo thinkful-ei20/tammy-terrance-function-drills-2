@@ -1,109 +1,118 @@
 'use strict';
 
-// let jediName = function (firstName, lastName){
-//     return lastName.slice(0,3) + firstName.slice(0,2) ;
-// }
+let jediName = function (firstName, lastName){
+    return lastName.slice(0,3) + firstName.slice(0,2) ;
+}
 
-// console.log(jediName('Tammy','Tian'));
+console.log(jediName('Tammy','Tian'));
 
-// const beyond = (num) => {
+const beyond = (num) => {
 
-// 	if ( isFinite(num) ) {
-// 		if (num === 0) {
-// 			console.log('Staying home');
-// 		}
-// 		if (num > 0) {
-// 			console.log('To infinity');
-// 		} else {
-// 				console.log('To negative infinity');
-// 		}
-// 	} else {
-// 			console.log('Any beyond');
-// 	}
+	if ( isFinite(num) ) {
+		if (num === 0) {
+			console.log('Staying home');
+		}
+		if (num > 0) {
+			console.log('To infinity');
+		} else {
+				console.log('To negative infinity');
+		}
+	} else {
+			console.log('Any beyond');
+	}
 
-// }
+}
 
-// console.log( beyond(3) );
+console.log( beyond(3) );
 
-// const decode = function (secretWord) {
-//     if (secretWord[0] === 'a') {
-//         return secretWord[1];
-//     } else if (secretWord[0] === 'b') {
-//         return secretWord[2];
-//     } else if (secretWord[0] === 'c') {
-//         return secretWord[3];
-//     } else if (secretWord[0] === 'd') {
-//         return secretWord[4];
-//     } else {
-//         return " ";
-//     }
-// }
-// console.log(decode('craft'));
+const decode = function (secretWord) {
+    if (secretWord[0] === 'a') {
+        return secretWord[1];
+    } else if (secretWord[0] === 'b') {
+        return secretWord[2];
+    } else if (secretWord[0] === 'c') {
+        return secretWord[3];
+    } else if (secretWord[0] === 'd') {
+        return secretWord[4];
+    } else {
+        return " ";
+    }
+}
+console.log(decode('craft'));
 
-// console.log(decode('block'));
+console.log(decode('block'));
 
-// console.log(decode('argon'));
+console.log(decode('argon'));
 
-// console.log(decode('meter'));
+console.log(decode('meter'));
 
-// console.log(decode('bells'));
+console.log(decode('bells'));
 
-// console.log(decode('brown'));
+console.log(decode('brown'));
 
-// console.log(decode('croon'));
+console.log(decode('croon'));
 
-// console.log(decode('droop'));
+console.log(decode('droop'));
 
-// const daysInMonth = (month, leapYear) => {
+const daysInMonth = (month, leapYear) => {
 
-// 	let result = '';
+  let result = '';
 
-// 	switch(month) {
-// 		case 'January':
-// 		case 'March':
-// 		case 'May':
-// 		case 'July':
-// 		case 'August':
-// 		case 'October':
-// 		case 'December':
-// 			result = `${month} has 31 days.`;
-// 			break;
-// 		case 'February':
-// 			if (leapYear) {
-// 				result = `${month} has 29 days.`;
-// 			} else {
-// 					result = `${month} has 28 days.`;
-// 			}
-// 		case 'April':
-// 		case 'June':
-// 		case 'September':
-// 		case 'November':
-// 			result = `${month} has 30 days.`;
-// 			break;
-// 		default: 
-// 			result = 'Must provide a valid month';
-// 	}
+  switch(month) {
+		case 'January':
+		case 'March':
+		case 'May':
+		case 'July':
+		case 'August':
+		case 'October':
+		case 'December':
+			result = `${month} has 31 days.`;
+			break;
+		case 'February':
+			if (leapYear) {
+				result = `${month} has 29 days.`;
+			} else {
+					result = `${month} has 28 days.`;
+			}
+		case 'April':
+		case 'June':
+		case 'September':
+		case 'November':
+			result = `${month} has 30 days.`;
+			break;
+		default: 
+			result = 'Must provide a valid month';
+	}
 
-// 	return result;
-// }
+	return result;
+}
 
-// daysInMonth('March');
+daysInMonth('March');
 
 
 
-const rpsGame = function (player1, player2) {
+const rpsGame = function (player1) {
     const randomNo = Math.floor(Math.random() * 3) + 1;
    
-    if (player1 === player2) {
-        return "It's a tie.";
-    } else if (player1 > player2) {
-        return "Player 1 Wins";
-    } else if (player1 < player2) {
-        return "Player 2 Wins."
+    if (player1 === randomNo) {
+        console.log("It's a tie.");
+        return;
+    } else if (player1 > randomNo) {
+        console.log("Player 1 Wins");
+        return;
+    } else if (player1 < randomNo) {
+        console.log("Player 2 Wins.");
+        return;
     }
 
     if (typeof player1 !== 'number') {
         throw new Error ('Please put in a number to represent rock, paper or scissor');
     }
 }
-console.log (rpsGame('q',2));
+
+try {
+    rpsGame(1);
+    rpsGame('apples');
+} catch (e) {
+    console.error(e.message);
+}
